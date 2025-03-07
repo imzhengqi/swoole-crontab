@@ -1,5 +1,5 @@
 {
-    "name": "zhengqi/common-utils-crontab-swoole",
+    "name": "zhengqi/swoole-crontab",
     "type": "library",
     "license": "MIT",
     "autoload": {
