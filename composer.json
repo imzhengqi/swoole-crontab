@@ -1,0 +1,24 @@
+{
+    "name": "zhengqi/common-utils-crontab-swoole",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "zhengqi\\swoole\\crontab\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "zhengqi"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-swoole": "*",
+        "zhengqi/crontab-expression": "^1.0",
+        "psr/log": "^3.0"
+    },
+    "require-dev": {
+        "swoole/ide-helper": "^6.0"
+    }
+}
