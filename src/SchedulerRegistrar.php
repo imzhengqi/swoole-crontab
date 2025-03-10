@@ -47,7 +47,7 @@ class SchedulerRegistrar
             throw new InvalidArgumentException("Task {$taskName} already registered");
         }
         // 日期表达式格式不正确
-        if (!CronExpression::isValid($task->getCronRule())) {
+        if (!CronExpression::isValidExpression($task->getCronRule())) {
             $this->logger->error('Invalid cron expression', [
                 'task' => $taskName,
                 'expression' => $task->getCronRule()

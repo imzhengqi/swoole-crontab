@@ -1,5 +1,6 @@
 {
     "name": "zhengqi/swoole-crontab",
+    "description": "基于swoole的crontab定时任务",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -15,7 +16,7 @@
     "require": {
         "php": ">=8.1",
         "ext-swoole": "*",
-        "zhengqi/crontab-expression": "^1.0",
+        "zhengqi/crontab-expression": "^2.0",
         "psr/log": "^3.0"
     },
     "require-dev": {
