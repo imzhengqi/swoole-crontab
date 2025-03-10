@@ -177,9 +177,9 @@ class Scheduler
     private function daemonize(): void
     {
         $process = new Process(function () {
-            fclose(STDIN);
-            fclose(STDOUT);
-            fclose(STDERR);
+            fclose(STDIN); // 关闭标准输入
+            fclose(STDOUT); // 关闭标准输出
+            fclose(STDERR); // 关闭标准错误
             $this->logger->debug('Daemon process started');
         });
 
@@ -191,12 +191,16 @@ class Scheduler
      */
     private function registerSignalHandler(): void
     {
+        // SIGTERM：这是一个通用的终止信号，通常用于请求进程正常终止
+        // 当进程接收到 SIGTERM 信号时（通常是通过 kill 命令发送），执行回调函数
         Process::signal(SIGTERM, function () {
             $this->logger->notice('Received SIGTERM');
             $this->stop();
             exit(0);
         });
 
+        // SIGINT：这是中断信号，通常由用户通过键盘中断进程（例如 Ctrl+C）
+        // 当进程接收到 SIGINT 信号时（通常是通过 Ctrl+C 发送），执行回调函数
         Process::signal(SIGINT, function () {
             $this->logger->notice('Received SIGINT');
             $this->stop();
